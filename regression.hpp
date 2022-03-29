@@ -1,6 +1,8 @@
 #ifndef REGRESSION_HPP
 #define REGRESSION_HPP
 #include <stdexcept>
+#include <vector>
+
 struct result
 {
     double A{};
@@ -8,11 +10,11 @@ struct result
 };
 
 class Regression {
-    int N_{};
-    double sum_x_{};
-    double sum_y_{};
-    double sum_x2_{};
-    double sum_xy_{};
+struct Point{
+    double x;
+    double y;
+};
+std::vector<Point> points_{};
 
 public:
     int size ()const;
@@ -20,5 +22,4 @@ public:
     result fit() const;
     auto fit(Regression const &reg);
 };
-
 #endif
